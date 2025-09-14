@@ -4,18 +4,37 @@
     "config:recommended",
     "docker:enableMajor",
     "helpers:pinGitHubActionDigests",
+    "github>tamasv/renovate-config:automerge-docker-digest.json5",
+    "github>tamasv/renovate-config:changelogs.json5",
     "github>tamasv/renovate-config:custom-managers.json5",
-    "github>tamasv/renovate-config:automerge-github-actions",
-    "github>tamasv/renovate-config:commit-message",
-    "github>tamasv/renovate-config:pr-labels",
+    "github>tamasv/renovate-config:grafana-dashboards.json5",
+    "github>tamasv/renovate-config:groups.json5",
+    "github>tamasv/renovate-config:pr-labels.json5",
+    "github>tamasv/renovate-config:overrides.json5",
+    "github>tamasv/renovate-config:commit-message.json5",
     ":dependencyDashboard",
     ":disableRateLimiting",
-    ":enablePreCommit"
+    ":enablePreCommit",
+    ":semanticPrefixFixDepsChoreOthers",
+    "security:openssf-scorecard"
   ],
   "timezone": "Europe/Brussels",
+  "assigneesFromCodeOwners": true,
+  "reviewersFromCodeOwners": true,
+  "gitAuthor": "Renovate Bot <renovate@alapzaj.com>",
   "dependencyDashboardTitle": "Renovate Dashboard",
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
   "commitBodyTable": true,
   "rebaseWhen": "auto",
-  "platformCommit": "enabled"
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security", "vulnerability"]
+  },
+  "ignorePaths": ["**/*.sops.*", "archive/**"],
+  "flux": {
+    "managerFilePatterns": ["/\\.yaml(?:\\.j2)?$/"]
+  },
+  "kubernetes": {
+    "managerFilePatterns": ["/\\.yaml(?:\\.j2)?$/"]
+  }
 }
